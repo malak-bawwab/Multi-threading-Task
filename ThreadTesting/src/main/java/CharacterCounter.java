@@ -8,7 +8,7 @@ public class CharacterCounter {
 	private AtomicIntegerArray charactersCount;
 
 	public CharacterCounter() {
-	
+
 		charactersCount = new AtomicIntegerArray(26);
 	}
 
@@ -41,7 +41,7 @@ public class CharacterCounter {
 
 	private AtomicIntegerArray computeCount(int character) {
 		if (character > 96 && character < 123) {
-	
+
 			charactersCount.getAndIncrement(character - 97);
 
 		}
