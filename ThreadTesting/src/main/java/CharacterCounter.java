@@ -5,7 +5,12 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
 
 public class CharacterCounter {
 
-	private AtomicIntegerArray charactersCount = new AtomicIntegerArray(26);
+	private AtomicIntegerArray charactersCount;
+
+	public CharacterCounter() {
+	
+		charactersCount = new AtomicIntegerArray(26);
+	}
 
 	AtomicIntegerArray occurrencesCount(File file) {
 
