@@ -21,7 +21,7 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 	protected AtomicIntegerArray compute() {
 		AtomicIntegerArray count = new AtomicIntegerArray(26);
 		ConcurrentHashMap<Integer, RecursiveTask<AtomicIntegerArray>> tasks = new ConcurrentHashMap<>();
-		int files = 0;
+		
 		int key = 0;
 		File content[] = file.listFiles();
 		if (content != null) {
@@ -36,7 +36,7 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 					task.fork();
 
 					tasks.put(key++, task);
-					files++;
+				
 
 				}
 			}
