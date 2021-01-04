@@ -1,50 +1,50 @@
+import java.io.File;
 
-import java.io.*;
-
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
 public class CharacterCounter {
 
-	private AtomicIntegerArray charactersCount;
+	public static void main(String[] args) throws Exception {
 
-	public CharacterCounter() {
+		if (args.length == 0) {
+			throw new IllegalArgumentException("Please provide a path for the folder");
+		}
+		int numOfCores = Runtime.getRuntime().availableProcessors();
 
-		charactersCount = new AtomicIntegerArray(26);
-	}
+		ForkJoinPool forkJoinPool = new ForkJoinPool(numOfCores);
 
-	AtomicIntegerArray occurrencesCount(File file) {
+		FolderSearchTask folder = new FolderSearchTask(new File(args[0]));
 
-		BufferedReader reader = null;
-		try {
-			reader = new BufferedReader(new FileReader(file));
-			int character = 0;
-			while ((character = reader.read()) != -1) {
-				computeCount(character);
+		forkJoinPool.execute(folder);
+
+		do {
+			System.out.printf("******************************************\n");
+			System.out.printf("Main: Parallelism: %d\n", forkJoinPool.getParallelism());
+			System.out.printf("Main: Active Threads: %d\n", forkJoinPool.getActiveThreadCount());
+			System.out.printf("Main: Task Count: %d\n", forkJoinPool.getQueuedTaskCount());
+			System.out.printf("Main: Steal Count: %d\n", forkJoinPool.getStealCount());
+			System.out.printf("******************************************\n");
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
+		} while ((!folder.isDone()));
 
-		} catch (Exception e) {
+		forkJoinPool.shutdown();
 
-			e.printStackTrace();
-		} finally {
-			if (reader != null) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
+		AtomicIntegerArray results;
+		results = folder.join();
+		FilesReader cs = new FilesReader();
 
+		for (int i = 0; i < 26; i++) {
+
+			char c = (char) (i + 97);
+
+			System.out.println(c + "\t" + results.get(i));
 		}
 
-		return charactersCount;
-	}
-
-	private AtomicIntegerArray computeCount(int character) {
-		if (character > 96 && character < 123) {
-
-			charactersCount.getAndIncrement(character - 97);
-
-		}
-		return charactersCount;
 	}
 }
