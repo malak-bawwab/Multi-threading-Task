@@ -38,7 +38,6 @@ public class CharacterCounter {
 
 		AtomicIntegerArray results;
 		results = folder.join();
-	
 
 		for (int i = 0; i < 26; i++) {
 

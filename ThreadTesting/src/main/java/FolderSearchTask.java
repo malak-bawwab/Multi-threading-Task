@@ -11,6 +11,7 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 	private static final long serialVersionUID = 1L;
 
 	private File file;
+	public static int NumberOfFiles = 0;
 
 	FolderSearchTask(File file) {
 		this.file = file;
@@ -21,8 +22,9 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 	protected AtomicIntegerArray compute() {
 		AtomicIntegerArray count = new AtomicIntegerArray(26);
 		ConcurrentHashMap<Integer, RecursiveTask<AtomicIntegerArray>> tasks = new ConcurrentHashMap<>();
-		
+
 		int key = 0;
+
 		File content[] = file.listFiles();
 		if (content != null) {
 			for (int i = 0; i < content.length; i++) {
@@ -31,12 +33,14 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 					task.fork();
 					tasks.put(key++, task);
 
-				} else {
+				}
+
+				else {
+
 					FileSearchTask task = new FileSearchTask(content[i]);
 					task.fork();
 
 					tasks.put(key++, task);
-				
 
 				}
 			}
@@ -45,7 +49,7 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 		if (tasks.size() > 50) {
 			System.out.printf("%s: %d tasks ran.\n", file.getAbsolutePath(), tasks.size());
 		}
-
+		NumberOfFiles += tasks.size() - 1;
 		addResultsFromTasks(count, tasks);
 
 		return count;
@@ -66,6 +70,11 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 
 		}
 
+	}
+
+	public int getNumberOfFiles() {
+
+		return NumberOfFiles;
 	}
 
 }

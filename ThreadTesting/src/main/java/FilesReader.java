@@ -18,7 +18,7 @@ public class FilesReader {
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			int character = 0;
-		
+
 			while ((character = reader.read()) != -1) {
 				updateCharsCountArray(character);
 			}
@@ -37,7 +37,6 @@ public class FilesReader {
 
 		}
 
-		
 	}
 
 	public AtomicIntegerArray getCharsCountArray() {
