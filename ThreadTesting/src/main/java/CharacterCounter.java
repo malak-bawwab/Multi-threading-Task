@@ -21,6 +21,7 @@ public class CharacterCounter {
 
 		do {
 			System.out.printf("******************************************\n");
+			System.out.printf("Pool Size: %d\n", forkJoinPool.getPoolSize());
 			System.out.printf("Main: Parallelism: %d\n", forkJoinPool.getParallelism());
 			System.out.printf("Main: Active Threads: %d\n", forkJoinPool.getActiveThreadCount());
 			System.out.printf("Main: Task Count: %d\n", forkJoinPool.getQueuedTaskCount());
