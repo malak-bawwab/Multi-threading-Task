@@ -34,10 +34,10 @@ public class FilesReader {
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
-			int character = 0;
-			
-			while ((character = reader.read()) != -1) {
-				updateCharsCountArray(character, tempCharsCountArray);
+			String line;
+
+			while ((line = reader.readLine()) != null) {
+				updateCharsCountArray(line, tempCharsCountArray);
 			}
 
 			charsCountArray = tempCharsCountArray;
@@ -64,12 +64,8 @@ public class FilesReader {
 	 *
 	 */
 
-	private synchronized void updateCharsCountArray(int character, AtomicIntegerArray tempCharsCountArray) {
-		if (character > 96 && character < 123) {
-
-			tempCharsCountArray.getAndIncrement(character - 97);
-
-		}
+	private synchronized void updateCharsCountArray(String line, AtomicIntegerArray tempCharsCountArray) {
+		line.codePoints().filter(c -> c >= 'a' && c <= 'z').forEach(e -> tempCharsCountArray.getAndIncrement(e - 97));
 
 	}
 
