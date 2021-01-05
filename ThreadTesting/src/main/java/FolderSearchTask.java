@@ -1,10 +1,9 @@
 import java.io.File;
 
-import java.util.Iterator;
-import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.atomic.AtomicIntegerArray;
+import java.util.stream.IntStream;
 
 public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 
@@ -46,9 +45,6 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 			}
 		}
 
-		if (tasks.size() > 50) {
-			System.out.printf("%s: %d tasks ran.\n", file.getAbsolutePath(), tasks.size());
-		}
 		NumberOfFiles += tasks.size() - 1;
 		addResultsFromTasks(count, tasks);
 
@@ -57,19 +53,8 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 
 	private void addResultsFromTasks(AtomicIntegerArray count,
 			ConcurrentHashMap<Integer, RecursiveTask<AtomicIntegerArray>> tasks) {
-
-		Iterator<Entry<Integer, RecursiveTask<AtomicIntegerArray>>> itr = tasks.entrySet().iterator();
-		while (itr.hasNext()) {
-			Entry<Integer, RecursiveTask<AtomicIntegerArray>> entry = itr.next();
-
-			for (int index = 0; index < 26; index++) {
-				int newValue = entry.getValue().join().get(index);
-				count.getAndAdd(index, newValue);
-
-			}
-
-		}
-
+		tasks.entrySet().stream().forEach(
+				e -> IntStream.range(0, 26).forEach(index -> count.getAndAdd(index, e.getValue().join().get(index))));
 	}
 
 	public int getNumberOfFiles() {
