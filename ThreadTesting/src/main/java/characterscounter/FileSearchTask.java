@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
 
 /**
  * This class represent FileSearchTask that uses FileReader class to compute the
- * count of small characters in the file that it has been passed through its
+ * count of small characters in the file that has been passed through its
  * constructor.
  * 
  * @author Malak
