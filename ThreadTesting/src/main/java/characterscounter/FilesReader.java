@@ -4,6 +4,8 @@ import java.io.*;
 
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
+import org.junit.platform.commons.util.StringUtils;
+
 /**
  * This class will read the file and count the small characters and store the
  * count for each char in AtomicIntegerArray charsCountArray.
@@ -33,7 +35,7 @@ public class FilesReader {
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			int character = 0;
-
+			
 			while ((character = reader.read()) != -1) {
 				updateCharsCountArray(character, tempCharsCountArray);
 			}
