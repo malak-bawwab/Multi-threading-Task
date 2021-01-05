@@ -27,7 +27,7 @@ public class FilesReader {
 	 *
 	 * @param file file to read.
 	 */
-	synchronized void readFile(File file) {
+	void readFile(File file) {
 		AtomicIntegerArray tempCharsCountArray = new AtomicIntegerArray(26);
 		BufferedReader reader = null;
 		try {
@@ -60,8 +60,9 @@ public class FilesReader {
 	 * character is a small character.
 	 */
 
-	private synchronized void updateCharsCountArray(String line, AtomicIntegerArray tempCharsCountArray) {
-		line.codePoints().parallel().filter(c -> c >= 'a' && c <= 'z').forEach(e -> tempCharsCountArray.getAndIncrement(e - 97));
+	private void updateCharsCountArray(String line, AtomicIntegerArray tempCharsCountArray) {
+		line.codePoints().parallel().filter(c -> c >= 'a' && c <= 'z')
+				.forEach(e -> tempCharsCountArray.getAndIncrement(e - 97));
 
 	}
 
@@ -71,7 +72,7 @@ public class FilesReader {
 	 * @return AtomicIntegerArray that contains the occurrence of small characters
 	 *         of this file.
 	 */
-	public synchronized AtomicIntegerArray getCharsCountArray() {
+	public AtomicIntegerArray getCharsCountArray() {
 		return charsCountArray;
 	}
 }
