@@ -1,3 +1,4 @@
+package characterscounter;
 import java.io.File;
 
 import java.util.concurrent.ConcurrentHashMap;

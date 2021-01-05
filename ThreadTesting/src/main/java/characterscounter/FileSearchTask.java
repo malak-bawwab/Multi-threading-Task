@@ -1,3 +1,5 @@
+package characterscounter;
+
 import java.io.File;
 import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.atomic.AtomicIntegerArray;

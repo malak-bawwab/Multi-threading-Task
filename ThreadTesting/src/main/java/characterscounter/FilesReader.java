@@ -1,3 +1,4 @@
+package characterscounter;
 
 import java.io.*;
 

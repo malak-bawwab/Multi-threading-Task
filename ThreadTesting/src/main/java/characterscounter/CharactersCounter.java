@@ -1,10 +1,19 @@
+package characterscounter;
+
 import java.io.File;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.stream.IntStream;
 
-public class CharacterCounter {
+
+/**
+ * The main entry for running the program
+ * 
+ * @author Malak
+ *
+ */
+public class CharactersCounter {
 
 	public static void main(String[] args) throws Exception {
 

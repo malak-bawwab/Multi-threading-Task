@@ -1,3 +1,4 @@
+package characterscounter;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
@@ -8,14 +9,14 @@ import java.util.stream.IntStream;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-class CharacterCounterTest {
+class CharactersCounterTest {
 	private static FolderSearchTask folder;
 	private static AtomicIntegerArray results;
 
 	@BeforeAll
 	public static void init() {
 
-		ClassLoader loader = CharacterCounterTest.class.getClassLoader();
+		ClassLoader loader = CharactersCounterTest.class.getClassLoader();
 		folder = new FolderSearchTask(new File(loader.getResource("test1").getPath()));
 		results = folder.invoke();
 
