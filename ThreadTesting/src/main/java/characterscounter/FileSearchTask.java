@@ -4,10 +4,16 @@ import java.io.File;
 import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
+/**
+ * This class represent FileSearchTask that uses FileReader class to compute the
+ * count of small characters in the file that it has been passed through its
+ * constructor.
+ * 
+ * @author Malak
+ *
+ */
 public class FileSearchTask extends RecursiveTask<AtomicIntegerArray> {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private File file;
 	private FilesReader filesReader;

@@ -6,7 +6,6 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.stream.IntStream;
 
-
 /**
  * The main entry for running the program
  * 
@@ -29,6 +28,7 @@ public class CharactersCounter {
 
 		forkJoinPool.shutdown();
 
+		// print results
 		IntStream.range(0, 26).forEach(index -> System.out.println((char) (index + 97) + "\t" + results.get(index)));
 
 	}
