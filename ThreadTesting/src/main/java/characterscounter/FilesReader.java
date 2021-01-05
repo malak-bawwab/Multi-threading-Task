@@ -4,7 +4,6 @@ import java.io.*;
 
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
-
 /**
  * This class will read the file and count the small characters and store the
  * count for each char in AtomicIntegerArray charsCountArray.
@@ -23,7 +22,7 @@ public class FilesReader {
 	}
 
 	/**
-	 * Read the passed file character by character and for each char call the
+	 * Read the passed file line by line and for each line call the
 	 * updateCharsCountArray.
 	 *
 	 * @param file file to read.
@@ -62,7 +61,7 @@ public class FilesReader {
 	 */
 
 	private synchronized void updateCharsCountArray(String line, AtomicIntegerArray tempCharsCountArray) {
-		line.codePoints().filter(c -> c >= 'a' && c <= 'z').forEach(e -> tempCharsCountArray.getAndIncrement(e - 97));
+		line.codePoints().parallel().filter(c -> c >= 'a' && c <= 'z').forEach(e -> tempCharsCountArray.getAndIncrement(e - 97));
 
 	}
 

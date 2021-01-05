@@ -89,7 +89,7 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 	 */
 	private void addResultsFromTasks(AtomicIntegerArray count,
 			ConcurrentHashMap<Integer, RecursiveTask<AtomicIntegerArray>> tasks) {
-		tasks.entrySet().stream().forEach(
+		tasks.entrySet().parallelStream().forEach(
 				e -> IntStream.range(0, 26).forEach(index -> count.getAndAdd(index, e.getValue().join().get(index))));
 	}
 
