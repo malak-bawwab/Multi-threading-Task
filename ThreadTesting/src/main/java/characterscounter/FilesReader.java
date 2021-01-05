@@ -5,8 +5,8 @@ import java.io.*;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
 /**
- * This class will read the file and count the small characters and store them
- * in AtomicIntegerArray charsCountArray.
+ * This class will read the file and count the small characters and store the
+ * count for each char in AtomicIntegerArray charsCountArray.
  * 
  * @author Malak
  *
@@ -27,7 +27,7 @@ public class FilesReader {
 	 *
 	 * @param file file to read.
 	 */
-	void readFile(File file) {
+	synchronized void readFile(File file) {
 
 		BufferedReader reader = null;
 		try {
@@ -55,13 +55,13 @@ public class FilesReader {
 	}
 
 	/**
-	 * update charsCountArray by incrementing the occurrence in case the passed
+	 * Update charsCountArray by incrementing the occurrence in case the passed
 	 * character is a small character.
 	 * 
 	 *
 	 */
 
-	private void updateCharsCountArray(int character) {
+	private synchronized void updateCharsCountArray(int character) {
 		if (character > 96 && character < 123) {
 
 			charsCountArray.getAndIncrement(character - 97);
@@ -76,7 +76,7 @@ public class FilesReader {
 	 * @return AtomicIntegerArray that contains the occurrence of small characters
 	 *         of this file.
 	 */
-	public AtomicIntegerArray getCharsCountArray() {
+	public synchronized AtomicIntegerArray getCharsCountArray() {
 		return charsCountArray;
 	}
 }

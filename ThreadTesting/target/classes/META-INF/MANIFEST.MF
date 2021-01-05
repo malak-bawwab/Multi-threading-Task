@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Built-By: MalakB
-Build-Jdk: 15.0.1
-Main-Class: characterscounter.CharactersCounter
-Created-By: Maven Integration for Eclipse
-

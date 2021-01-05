@@ -33,7 +33,7 @@ public class FolderSearchTask extends RecursiveTask<AtomicIntegerArray> {
 	 * ConcurrentHashMap tasks.
 	 *
 	 * @param content the folder
-	 * @param tasks   ConcurrentHashMap to put tasks on it
+	 * @param tasks ConcurrentHashMap to put tasks on it
 	 * 
 	 */
 	private void addTasks(File content[], ConcurrentHashMap<Integer, RecursiveTask<AtomicIntegerArray>> tasks) {

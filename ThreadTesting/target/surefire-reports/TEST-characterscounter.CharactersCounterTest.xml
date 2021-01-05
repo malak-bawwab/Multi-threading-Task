@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="characterscounter.CharactersCounterTest" time="0.312" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="characterscounter.CharactersCounterTest" time="0.334" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_261\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\MalakB\AppData\Local\Temp\surefire4666231910032513274\surefirebooter9042531961276247283.jar C:\Users\MalakB\AppData\Local\Temp\surefire4666231910032513274 2021-01-05T11-31-37_647-jvmRun1 surefire2110004105889513130tmp surefire_0636538154772468697tmp"/>
+    <property name="sun.java.command" value="C:\Users\MalakB\AppData\Local\Temp\surefire4141132048362370707\surefirebooter1335333524563669715.jar C:\Users\MalakB\AppData\Local\Temp\surefire4141132048362370707 2021-01-05T16-30-11_409-jvmRun1 surefire2314740932175550467tmp surefire_06434681492353646175tmp"/>
     <property name="surefire.test.class.path" value="C:\Users\MalakB\Desktop\Task\ThreadTesting\target\test-classes;C:\Users\MalakB\Desktop\Task\ThreadTesting\target\classes;C:\Users\MalakB\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\MalakB\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\MalakB\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\MalakB\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\MalakB\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\MalakB\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\MalakB"/>
@@ -31,7 +31,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\MalakB\AppData\Local\Temp\surefire4666231910032513274\surefirebooter9042531961276247283.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\MalakB\AppData\Local\Temp\surefire4141132048362370707\surefirebooter1335333524563669715.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_261\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_261\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_261\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -60,6 +60,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testInValidFiles" classname="characterscounter.CharactersCounterTest" time="0.038"/>
-  <testcase name="testFilesReader" classname="characterscounter.CharactersCounterTest" time="0.269"/>
+  <testcase name="testInValidFiles" classname="characterscounter.CharactersCounterTest" time="0.04"/>
+  <testcase name="testFilesReader" classname="characterscounter.CharactersCounterTest" time="0.286"/>
 </testsuite>
