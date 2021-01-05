@@ -28,16 +28,17 @@ public class FilesReader {
 	 * @param file file to read.
 	 */
 	synchronized void readFile(File file) {
-
+		AtomicIntegerArray tempCharsCountArray = new AtomicIntegerArray(26);
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			int character = 0;
 
 			while ((character = reader.read()) != -1) {
-				updateCharsCountArray(character);
+				updateCharsCountArray(character, tempCharsCountArray);
 			}
 
+			charsCountArray = tempCharsCountArray;
 		} catch (Exception e) {
 
 			e.printStackTrace();
@@ -61,10 +62,10 @@ public class FilesReader {
 	 *
 	 */
 
-	private synchronized void updateCharsCountArray(int character) {
+	private synchronized void updateCharsCountArray(int character, AtomicIntegerArray tempCharsCountArray) {
 		if (character > 96 && character < 123) {
 
-			charsCountArray.getAndIncrement(character - 97);
+			tempCharsCountArray.getAndIncrement(character - 97);
 
 		}
 
