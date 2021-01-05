@@ -4,7 +4,6 @@ import java.io.*;
 
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
-import org.junit.platform.commons.util.StringUtils;
 
 /**
  * This class will read the file and count the small characters and store the
@@ -60,8 +59,6 @@ public class FilesReader {
 	/**
 	 * Update charsCountArray by incrementing the occurrence in case the passed
 	 * character is a small character.
-	 * 
-	 *
 	 */
 
 	private synchronized void updateCharsCountArray(String line, AtomicIntegerArray tempCharsCountArray) {
